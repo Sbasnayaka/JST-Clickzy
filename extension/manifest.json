@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "JST Clickzy",
+  "version": "1.0.0",
+  "description": "A privacy-first, lightweight browser extension for PDFs, screenshots, and AI shortcuts.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Open JST Clickzy"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
