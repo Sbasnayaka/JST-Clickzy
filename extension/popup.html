@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JST Clickzy</title>
+  <link rel="stylesheet" href="popup.css">
+  <!-- Offline Libraries -->
+  <script src="libs/jspdf.umd.min.js"></script>
+  <script src="libs/pdf.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <h1>JST Clickzy</h1>
+      <button id="theme-toggle" class="btn-icon" title="Toggle Dark Mode">🌙</button>
+    </header>
+
+    <nav class="sidebar">
+      <button class="nav-btn active" data-target="view-shortcuts">🤖 AI Shortcuts</button>
+      <button class="nav-btn" data-target="view-img2pdf">🖼️ Img → PDF</button>
+      <button class="nav-btn" data-target="view-pdf2img">📄 PDF → Img</button>
+      <button class="nav-btn" data-target="view-screenshot">📸 Screenshot</button>
+      <button class="nav-btn" data-target="view-bgremove">✂️ BG Remove</button>
+    </nav>
+
+    <main class="content">
+      
+      <!-- AI Shortcuts View -->
+      <section id="view-shortcuts" class="view active">
+        <h2>AI Shortcuts</h2>
+        <p class="subtitle">Quick access to essential AI tools.</p>
+        <input type="text" id="ai-search" placeholder="Search tools..." class="input-field">
+        <div id="shortcuts-grid" class="grid"></div>
+      </section>
+
+      <!-- Img to PDF View -->
+      <section id="view-img2pdf" class="view hidden">
+        <h2>Images to PDF</h2>
+        <p class="subtitle">Convert local images into a single PDF safely.</p>
+        <div class="dropzone" id="img2pdf-drop">
+          <p>Click or drag images here</p>
+          <input type="file" id="img2pdf-input" multiple accept="image/*" class="hidden-input">
+        </div>
+        <div id="img2pdf-preview" class="preview-list"></div>
+        <button id="btn-generate-pdf" class="btn primary hidden">Generate & Download PDF</button>
+      </section>
+
+      <!-- PDF to Img View -->
+      <section id="view-pdf2img" class="view hidden">
+        <h2>PDF to Images</h2>
+        <p class="subtitle">Extract pages from a PDF as images.</p>
+        <div class="dropzone" id="pdf2img-drop">
+          <p>Click or drag a PDF here</p>
+          <input type="file" id="pdf2img-input" accept="application/pdf" class="hidden-input">
+        </div>
+        <div id="pdf2img-preview" class="grid"></div>
+      </section>
+
+      <!-- Screenshot View -->
+      <section id="view-screenshot" class="view hidden">
+        <h2>Capture Screen</h2>
+        <p class="subtitle">Take a screenshot of the visible tab area.</p>
+        <button id="btn-capture" class="btn primary">Capture Visible Tab</button>
+        <div id="screenshot-result" class="hidden mt-2">
+          <img id="screenshot-img" src="" alt="Screenshot preview" class="preview-img">
+          <button id="btn-dl-screenshot" class="btn mt-2">Download PNG</button>
+        </div>
+      </section>
+
+      <!-- Background Remove View -->
+      <section id="view-bgremove" class="view hidden">
+        <h2>Background Remover</h2>
+        <p class="subtitle">Uses remove.bg API. Files are processed securely via their service.</p>
+        
+        <div class="api-key-section">
+          <input type="password" id="bg-api-key" placeholder="Enter remove.bg API Key" class="input-field">
+          <button id="btn-save-key" class="btn">Save Key</button>
+        </div>
+
+        <div class="dropzone mt-2" id="bgremove-drop">
+          <p>Upload image to remove background</p>
+          <input type="file" id="bgremove-input" accept="image/*" class="hidden-input">
+        </div>
+        <div id="bgremove-result" class="hidden mt-2">
+          <p id="bg-status">Processing...</p>
+          <img id="bgremove-img" src="" class="preview-img hidden">
+          <button id="btn-dl-bgremove" class="btn hidden mt-2">Download Result</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="js/tools.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>
