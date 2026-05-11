@@ -111,7 +111,7 @@ JST-Clickzy/
 ## 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/JST-Clickzy.git
+git clone https://github.com/Sbasnayaka/JST-Clickzy.git
 ```
 
 ---
